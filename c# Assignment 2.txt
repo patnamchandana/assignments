@@ -1,0 +1,185 @@
+1.Circle is a class with property radius and methods setRadius(), getRadius(), calcDiameter(), calcArea(). Use double precision for everything. Write appropriate driver program to test the methods.
+
+
+2.Create a class called BankAccount and have default constructor to take credit as 500 and another parameterized to take other than 500.
+  In class program
+namespace classcircle
+{
+    public class Circle
+    {
+        public double radius;
+
+        public void SetRadius(double radius)
+        {
+            this.radius = radius;
+        }
+
+        public double GetRadius()
+        {
+            return radius;
+        }
+
+        public double CalcDiameter()
+        {
+            return 2 * radius;
+
+        }
+
+        public double CalArea()
+        {
+            return 3.14 * radius * radius;
+
+        }
+    }
+    public class bdetails
+    {
+
+
+
+        public int bid { get; set; }
+        public string bname { get; set; }
+        public int credit { get; set; }
+    }
+
+}
+
+In main program
+
+using System;
+using classcircle;
+namespace test
+
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Circle();
+            bank();
+        }
+        private static void Circle()
+        {
+            Circle Cobj = new Circle();
+            Cobj.radius = 10;
+            Console.WriteLine("Radius =" + Cobj.GetRadius());
+            Console.WriteLine("Diameter =" + Cobj.CalcDiameter());
+            Console.WriteLine("Area =" + Cobj.CalArea());
+        }
+
+
+
+
+
+
+        private static void bank()
+        {
+            bdetails bankd = new bdetails();
+            bankd.bid = Convert.ToInt32(Console.ReadLine());
+            bankd.bname = Console.ReadLine();
+            bankd.credit = 500;
+            Console.WriteLine(bankd.bname + " " + bankd.bid + " " + bankd.credit);
+
+        }
+
+    }
+}
+
+3.Create a class called EmployeeSalary with attributes as EmployeeId, name, Basic salary, HR allowance, Travel Allowant,. Provide appropriate visibility (private/public/protected/static)  of all the attributes. Create a constructor to accept employee salary details
+
+namespace BasicProgram
+{
+
+    public class EmployeeSalary
+    {
+        private int EmployeeId;
+        public string EmpName;
+        public  int BasicSalary;
+        protected int HRAllowance;
+        public  int TravelAllowent;
+
+        public int Id
+        {
+            get
+            {
+                return EmployeeId;
+            }
+            set
+            {
+                EmployeeId=value;
+            }
+        }
+
+        public void Employeesalary( )
+        {
+
+        }
+
+        public  void EmpSalary(int empid, string empname,int Bsalary,int HRallowance,int travel)
+        {
+            
+            EmpName = empname;
+            BasicSalary = Bsalary;
+            HRAllowance = HRallowance;
+            TravelAllowent = travel;
+
+
+        }
+    }
+    public class HR:EmployeeSalary
+    {
+      public void print()
+        {
+
+        }
+    }
+}
+
+4.A person has several attributes that include name, date of birth, address and marital status (single, married, divorced or widowed).
+    *Create a four parameter constructor to initialise the fields
+    *Write a method GetAge() to return the age of the person
+    *Write a method CanMarry() to return true or false if a person can get married (people can get married over the age of 18 if they are not already maried)
+namespace BasicProgram
+{
+   public class Person
+    {
+       public string Name;
+       public string Address;
+        public int Age;
+        
+       public  enum Maritalstatus
+        {
+             single, married, divorced ,widowed
+        }
+        public  Person()
+        {
+
+        }
+        public void PersonDetailes(string name,string address,int age,string maritalsatus)
+        {
+            Name = name;
+            Address = address;
+            Age = age;
+            
+        }
+
+        public int GetAge(DateTime dob)
+        {
+            int age = 0;
+            age = DateTime.Now.Subtract(dob).Days;
+            age = age / 365;
+            return age;
+        }
+        public Boolean CanMarry(int age)
+        {
+            if(age>18)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+    }
+
