@@ -1,0 +1,155 @@
+1.In this exercise, you are going to write an IStudent interface with register method and a PartTimeStudent class that implements it. These may be used in a scenario where employees are allowed to register as part time students; as such one can be an employee and a student at the same time. 
+
+
+  Write an interface, IStudent Add two simple properties as described PropertyTypeDescriptionLibCardNumberstringLibrary card numberYearintYear of studyAdd two methods 
+
+Istudent Interface:
+
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Csharp
+{
+    interface IStudent
+    {
+        public string LibCardNumber { set; get; }
+        public int Year { get; set; }
+
+         
+        public string  NoPartTimeStudent();
+       public  string PartTimeStudents();
+
+
+    }
+    public class PartTimeStudent : IStudent
+    {
+        public string LibCardNumber { get ; set ; }
+        public int Year { get; set; }
+
+
+     
+        public string NoPartTimeStudent()
+        {
+            return "I dont want Parttime studet";
+        }
+
+        public string PartTimeStudents()
+        {
+            return "I  want Parttime studet";
+        }
+    }
+}
+
+private static void InterfaceSample2()
+        {
+            PartTimeStudent student = new PartTimeStudent();
+            student.LibCardNumber = "678493940";
+            student.Year = 2012;
+            student.NoPartTimeStudent();
+            student.PartTimeStudents();
+            Console.WriteLine(student.PartTimeStudents());
+        }
+
+2.implementation of BankAccount,SavingsAccount and ODAccount.
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Csharp
+{
+    interface BankDetailes
+    {
+        public int AccountNumber { get; set; }
+        public string AccountHolderName { get; set; }
+
+        public int Amount { get; set; }
+        public double BalanceAmount { get; set; }
+
+        bool Deposit(int Amount);
+        bool Withdraw(int Amount);
+
+    }
+    public class SavingsAccount : BankDetailes
+    {
+        public int AccountNumber { get; set; }
+        public string AccountHolderName { get; set; }
+        public int Amount { get; set; }
+        public double BalanceAmount { get; set; }
+        public double Interest;
+        public double MinimumBlance;
+
+        public bool Deposit(int Amount)
+        {
+            if (Amount > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public bool Withdraw(int Amount)
+        {
+            if (Amount > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        public double Addinterest()
+        {
+
+            return Interest;
+        }
+    }
+    public class ODAccount : BankDetailes
+    {
+        public int AccountNumber { get ; set; }
+        public string AccountHolderName { get ; set ; }
+        public int Amount { get ; set; }
+        public double BalanceAmount { get ; set ; }
+        public double ODInterest;
+        public double ODLimit;
+
+        public bool Deposit(int Amount)
+        {
+if (Amount > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public bool Withdraw(int Amount)
+        {
+            if (Amount > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public double AddODinterest()
+        {
+
+            return ODInterest;
+
+        }
+    }
+}
